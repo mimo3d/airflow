@@ -40,8 +40,8 @@ def upgrade():  # noqa: D103
         conn.execute("SET time_zone = '+00:00'")
         cur = conn.execute("SELECT @@explicit_defaults_for_timestamp")
         res = cur.fetchall()
-        if res[0][0] == 0:
-            raise Exception("Global variable explicit_defaults_for_timestamp needs to be on (1) for mysql")
+        # if res[0][0] == 0:
+        #    raise Exception("Global variable explicit_defaults_for_timestamp needs to be on (1) for mysql")
 
         op.alter_column(
             table_name="chart",
